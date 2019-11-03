@@ -7,7 +7,7 @@ const App = () => {
   const userData = [
     { id: 1, firstName: 'victor', surname: 'Iheanacho', dob: '12/21/21', age: 67, height: '1.8m' },
     { id: 2, firstName: 'sane', surname: 'daniel', dob: '12/21/21', age: 56, height: '1.8m' },
-    {id: 1, firstName: 'matic', surname: 'nemanja', dob: '64/21/21', age: 89, height: '2.8m'}
+    {id: 3, firstName: 'matic', surname: 'nemanja', dob: '64/21/21', age: 89, height: '2.8m'}
   ];
 
   const [users, setUsers] = useState(userData);
@@ -15,6 +15,10 @@ const App = () => {
   const addUser = user => {
     user.id = user.length + 1;
     setUsers([...users, user]);
+  }
+
+  const deleteUser = id => {
+    setUsers(users.filter(user => user.id !== id));
   }
 
   return (
@@ -28,7 +32,7 @@ const App = () => {
 
         <div className=''>
           <h2>View Users</h2>
-          <Table users={users}/>
+          <Table users={ users } deleteUser={ deleteUser }/>
         </div>
 
     </div>

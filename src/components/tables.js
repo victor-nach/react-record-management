@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Table = ({users}) => (
+const Table = ({users, deleteUser}) => (
     <table className="table table-bordered table-striped thead-dark table-responsive">
         <thead>
             <tr>
@@ -23,7 +23,7 @@ const Table = ({users}) => (
                         <td>{ user.age }</td>
                         <td>{ user.height }</td>
                         <td><button className="btn btn-primary d-inline">Edit</button></td>
-                        <td><button className="btn btn-primary d-inline">Delete</button></td>
+                        <td onClick={() => deleteUser(user.id) }><button className="btn btn-primary d-inline">Delete</button></td>
                     </tr>
                 ))
             ) : ( 
