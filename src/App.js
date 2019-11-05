@@ -11,7 +11,7 @@ const App = () => {
   
   useEffect(() => {
     async function fetchUsers() {
-      const {data} = await axios.get('https://cashbox-backend-node.herokuapp.com/records');
+      const {data} = await axios.get('/records');
       setUsers(data.data);
     }
     fetchUsers();
@@ -40,8 +40,11 @@ const App = () => {
   }
 
   const addUser = user => {
-    user.id = user.length + 1;
-    setUsers([...users, user]);
+    async function fetchUsers() {
+      const res = await axios.post('/records', user);
+      setUsers([...users, res.data.data]);
+    }
+    fetchUsers();
   }
 
   const deleteUser = id => {
