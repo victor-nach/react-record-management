@@ -16,7 +16,7 @@ const Table = ({users, deleteUser, editUser}) => (
         <tbody>
             { users.length > 0 ? (
                 users.map(user => (
-                    <tr>
+                    <tr key={user.id}>
                         <td>{ user.firstName }</td>
                         <td>{ user.surname }</td>
                         <td>{ user.dob }</td>
@@ -28,7 +28,7 @@ const Table = ({users, deleteUser, editUser}) => (
                 ))
             ) : ( 
                 <tr>
-                    <td colSpan={3}>No users</td>
+                    <td colSpan={7}>No users</td>
                 </tr>
             )}
         </tbody>

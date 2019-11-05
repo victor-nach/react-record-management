@@ -25,36 +25,36 @@ const AddForm = ({ addUser }) => {
     return (
         <form onSubmit={ handleSubmit } >
             <div className="form-group">
-                <label for="firstName">First Name</label>
+                <label htmlFor="firstName">First Name</label>
                 <input type="text" required name="firstName" id="firstName" value={ user.firstName } 
                  onChange={ handleInputChange } />
             </div>
 
             <div className="form-group">
-                <label for="surname">Surname</label>
+                <label htmlFor="surname">Surname</label>
                 <input type="text" required name="surname" id="surname" value={ user.surname } 
                  onChange={ handleInputChange } />
             </div>
 
             <div className="form-group">
-                <label for="dob">date of Birth</label>
+                <label htmlFor="dob">date of Birth</label>
                 <input type="dob" required name="dob" id="dob" value={ user.dob }  
                 onChange={ handleInputChange } />
             </div>
 
             <div className="form-group">
-                <label for="age">age</label>
+                <label htmlFor="age">age</label>
                 <input type="age" required name="age" id="age" value={ user.age } 
                 onChange={ handleInputChange } />
             </div>
 
             <div className="form-group">
-                <label for="height">height</label>
+                <label htmlFor="height">height</label>
                 <input type="height" required name="height" id="height" value={ user.height } 
                 onChange={ handleInputChange } />
             </div>
 
-            <button type="submit" class="btn btn-primary">Add User</button>
+            <button type="submit" className="btn btn-primary">Add User</button>
         </form>
     )
 }
