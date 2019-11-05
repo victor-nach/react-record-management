@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Table from './components/tables';
 import AddForm from './components/addForm';
 import EditForm from './components/editForm';
 import './App.css';
 
 const App = () => {
-  const userData = [
-    { id: 1, firstName: 'victor', surname: 'Iheanacho', dob: '12/21/21', age: 67, height: '1.8m' },
-    { id: 2, firstName: 'sane', surname: 'daniel', dob: '12/21/21', age: 56, height: '1.8m' },
-    { id: 3, firstName: 'matic', surname: 'nemanja', dob: '64/21/21', age: 89, height: '2.8m' }
-  ];
 
-  const [users, setUsers] = useState(userData);
+  const [users, setUsers] = useState([]);
+  
+  useEffect(() => {
+    async function fetchUsers() {
+      const {data} = await axios.get('https://cashbox-backend-node.herokuapp.com/records');
+      setUsers(data.data);
+    }
+    fetchUsers();
+  }, [users]);
 
   const [editStatus, setEditStatus] = useState(false);
 
