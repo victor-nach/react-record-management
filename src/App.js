@@ -15,7 +15,7 @@ const App = () => {
       setUsers(data.data);
     }
     fetchUsers();
-  }, [users]);
+  }, []);
 
   const [editStatus, setEditStatus] = useState(false);
 
